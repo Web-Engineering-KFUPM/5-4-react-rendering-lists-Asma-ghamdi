@@ -10,22 +10,18 @@ export default function CourseCard({ course, index, onMutateCourse }) {
      ========================================================= */
 
 function toggleTask(id) {
-  onMutateCourse(index, (draftCourse) => {
-    draftCourse.tasks = draftCourse.tasks.map((task) =>
-      task.id === id
-        ? { ...task, isDone: !task.isDone }
-        : task
-    );
-  });
+  onMutateCourse(index, (tasks) =>
+    tasks.map((task) =>
+      task.id === id ? { ...task, isDone: !task.isDone } : task
+    )
+  );
 }
 
 function deleteTask(id) {
-  onMutateCourse(index, (draftCourse) => {
-    draftCourse.tasks = draftCourse.tasks.filter(
-      (task) => task.id !== id
-    );
-  });
+  onMutateCourse(index, (tasks) => tasks.filter((task) => task.id !== id));
 }
+
+
   // Helpful hints for TASK 3 (optional to use)
   // const hasTasks = course.tasks.length > 0;
   // const allDone = hasTasks && course.tasks.every(t => t.isDone);
