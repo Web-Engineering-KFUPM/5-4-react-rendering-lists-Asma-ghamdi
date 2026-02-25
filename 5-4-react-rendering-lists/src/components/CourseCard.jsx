@@ -48,7 +48,7 @@ function deleteTask(id) {
         )}
         
         <ul className="tasks">
-          {courses.task.map((task) => (
+          {course.tasks.map((task) => (
          <TaskItem
             key={task.id}
             task={task}
